@@ -1,0 +1,2 @@
+pg1 ansible_host=172.16.137.102 ansible_ssh_private_key_file=/vagrant/.vagrant/machines/pg1/libvirt/private_key
+pg2 ansible_host=172.16.137.103 ansible_ssh_private_key_file=/vagrant/.vagrant/machines/pg2/libvirt/private_key

@@ -1,0 +1,7 @@
+- src: ANXS.postgresql
+- src: https://github.com/kofonfor/ansible-role-postgresql.git
+  version: 3a09ff837ff065cbe57e0dd2d8af39530a8eefff
+  name: postgresql
+- src: https://github.com/kofonfor/ansible-role-timescaledb.git
+  version: 60e4bf6ba78af9f4538bab42b38bb0a2604bdc02
+  name: timescaledb

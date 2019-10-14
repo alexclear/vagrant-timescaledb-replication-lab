@@ -1,0 +1,34 @@
+- hosts: pg1
+  become: yes
+  roles:
+  - role: ANXS.postgresql
+  tasks:
+  - name: Install TimescaleDB repo
+    apt_repository:
+      repo: ppa:timescale/timescaledb-ppa
+  - name: Install TimescaleDB
+    apt:
+      name: timescaledb-postgresql-11
+      state: present
+  - name: create a hardlink to postgresql.conf
+    file:
+      state: hard
+      src: /etc/postgresql/11/main/postgresql.conf
+      dest: /var/lib/postgresql/11/main/postgresql.conf
+  - name: create a hardlink to pg_hba.conf
+    file:
+      state: hard
+      src: /etc/postgresql/11/main/pg_hba.conf
+      dest: /var/lib/postgresql/11/main/pg_hba.conf
+  - name: create a hardlink to pg_ident.conf
+    file:
+      state: hard
+      src: /etc/postgresql/11/main/pg_ident.conf
+      dest: /var/lib/postgresql/11/main/pg_ident.conf
+
+- hosts: pg2
+  become: yes
+  roles:
+  - { role: postgresql, postgres_service_enabled: no }
+  - role: timescaledb
+  - role: postgresql-replication
