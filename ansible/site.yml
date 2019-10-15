@@ -2,14 +2,8 @@
   become: yes
   roles:
   - role: ANXS.postgresql
+  - role: timescaledb
   tasks:
-  - name: Install TimescaleDB repo
-    apt_repository:
-      repo: ppa:timescale/timescaledb-ppa
-  - name: Install TimescaleDB
-    apt:
-      name: timescaledb-postgresql-11
-      state: present
   - name: create a hardlink to postgresql.conf
     file:
       state: hard
