@@ -5,3 +5,6 @@
 - src: https://github.com/kofonfor/ansible-role-timescaledb.git
   version: 60e4bf6ba78af9f4538bab42b38bb0a2604bdc02
   name: timescaledb
+- src: https://github.com/kofonfor/ansible-role-postgresql-replication.git
+  version: 2720b532b4913ab564c7bd007c8d29d6cfebbc1d
+  name: postgresql-replication
